@@ -2,7 +2,7 @@
 
 You bought a $100 piece of bleeding-edge hardware. It has capacitive touch, high-fidelity haptics, trackpads, and a gyroscope. It is a masterpiece of modern engineering.
 
-And yet, to play a game on Windows in 2026, you are forced to make it masquerade as an Xbox 360 controller from 2005.
+And yet, to play a game on Windows in 2026, you are forced to make it masquerade as a $50 Xbox 360 controller from 2005.
 
 Why? Because Microsoft's driver ecosystem is a rusted-out dumpster fire. Windows is a trillion-dollar operating system that still treats any peripheral more complex than two sticks and a D-pad like it’s absolute witchcraft.
 
