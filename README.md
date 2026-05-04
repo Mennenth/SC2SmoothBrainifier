@@ -1,68 +1,69 @@
-# Steam Controller 2 Smooth Brain-ifier
-Congratulations. You bought a $100 piece of highly advanced hardware, only to demand it function exactly like a $50 plastic brick without Steam running. You want to take a device that vastly exceeds the capabilities of a standard Xbox controller and lobotomize it.  Why? I don't know, but here we are. Personally, I think this situation is ridiculous.
+You bought a $100 piece of bleeding-edge hardware. It has capacitive touch, high-fidelity haptics, trackpads, and a gyroscope. It is a masterpiece of modern engineering.
 
-Non-Steam compatibility was "solved" a decade ago with the original Steam Controller. The community built tools like GlosSI, and now they've built [SISR](https://github.com/Alia5/SISR). But apparently, following a basic setup guide is too much work for you. You complained that [SISR](https://github.com/Alia5/SISR) "still relies on Steam". I suppose it's a case of "monkey see basic controls, monkey want plug and play". You are willingly missing the point of having a highly advanced controller backed by highly advanced customization software.
+And yet, to play a game on Windows in 2026, you are forced to make it masquerade as an Xbox 360 controller from 2005.
 
-Well, fine. Here is your pacifier.
+Why? Because Microsoft's driver ecosystem is a rusted-out dumpster fire. Windows is a trillion-dollar operating system that still treats any peripheral more complex than two sticks and a D-pad like it’s absolute witchcraft.
 
-## How to Use This Dumb Thing
+Companies like Valve have to rely on software layers (Steam Input) because the native Windows API (XInput) is physically incapable of comprehending the innovation happening in hardware.
 
-1. Install [usbip-win2](https://github.com/vadimgrn/usbip-win2). This is required for [VIIPER](https://github.com/Alia5/VIIPER) to work.
-2. Close Steam.
-3. Run the .exe downloaded from releases.
-4. Enjoy your expensive Xbox controller.
+It isn't your fault that you just want to play a game on Epic or GOG without launching Steam.
+
+Since Windows has a smooth brain, we have to smooth the brain of the controller so the OS can understand it. That's what this tool does.
+
+## How to Dumb it Down
+
+1: Install [usbip-win2](https://github.com/vadimgrn/usbip-win2). This is the open-source backbone [VIIPER](https://github.com/Alia5/VIIPER) (the backbone of this app) needs to trick Windows.
+
+2: Close Steam.
+
+3: Run the .exe downloaded from releases.
+
+4: Play your games.
 
 ## What Exactly Is This Program?
 
-SC2SmoothBrainifier does one thing: it converts the basic controls of your Steam Controller 2026 into a basic Xbox 360 controller, completely bypassing Steam.
+SC2SmoothBrainifier lobotomizes the Steam Controller 2026 just enough to make Windows happy, without needing Steam running in the background.
 
-It uses hidAPI to find the controller's puck and violently kills Lizard Mode. Then, it sits in your system tray and feeds the raw HID data from your Steam Controller 2026 into a virtual Xbox controller created by [VIIPER](https://github.com/Alia5/VIIPER).
+It uses hidAPI to intercept the raw data from the controller's puck, disables Valve's "Lizard Mode," and sits in your system tray feeding the data into a virtual Xbox controller created by [VIIPER](https://github.com/Alia5/VIIPER).
 
-If that's too much technical jargon for you: complicated thing in, simple thing out.
+Translating the future into 2005's standards. Complicated thing in, simple thing out.
 
-## What Actually Works?
+## What Survived the Lobotomy?
 
-Here is the basic stuff that is mapped for you:
-* Left and Right analog sticks.
-* Left and Right stick clicks.
-* ABXY.
-* DPAD.
-* Bumpers.
-* Triggers.
-* Start, Back, and Guide buttons.
+Here is what XInput can actually understand, which this app supports:
+* Left and Right analog sticks, and their clicks
+* ABXY
+* DPAD
+* Bumpers
+* Triggers
+* Start, Back, and Guide buttons
 
-Here is what is explicitly ignored, because you asked for it:
-* Either trackpad.
-* Either trackpad click.
-* Capsense on top of the sticks.
-* Either grip sense.
-* The back buttons.
-* Gyro.
+Here are the casualties of Microsoft's neglect (Unsupported):
+* Either trackpad
+* Either trackpad click
+* Capsense on top of the sticks
+* Either grip sense
+* The back buttons
+* Gyro
 
-This program is simple: it has no GUI, no rebinding, and absolutely no advanced features. 
+There is no GUI. There is no rebinding. If you want those advanced features back, you have to go back to Steam, or use [SISR](https://github.com/Alia5/SISR) for non Steam games.
 
-... Oh, you wanted those advanced features? Go use Steam Input. Or if you're playing non-Steam games, use [SISR](https://github.com/Alia5/SISR).
+## Running Steam At The Same Time (The Hybrid Approach)
 
-## Running Steam At The Same Time as [SISR](https://github.com/Alia5/SISR) (For Masochists)
-
-Technically, multiple programs can read the same HID reports at once. If you insist on keeping the basic controls basic but want to run Steam alongside this app, you can.
+Technically, multiple programs can read the same raw USB data at once. If you want Windows to handle the basic inputs natively but let Steam handle the advanced stuff (like gyro), you can.
 
 To prevent your PC from registering double inputs, you must:
-* Disable Xbox controller support in Steam. This prevents Steam from hooking into the virtual Xbox controller VIIPER just made.
-* Ensure the "basic controls" of the Steam Controller 2026 are completely blanked out in your Steam configurations.
+* Disable Xbox controller support in Steam. This prevents Steam from hooking into the virtual controller [VIIPER](https://github.com/Alia5/VIIPER) just spawned.
+* Blank out the basic controls in your Steam Controller configuration.
 
-From there, SC2SmoothBrainifier handles the basic controls, and Steam Input can handle the advanced stuff like trackpads and gyro.
-
-The catch? Any configuration changes you make in Steam Input cannot modify the basic controls in any way. Honestly, it would be much simpler to just use Steam Input for everything.
+SC2SmoothBrainifier handles the legacy stuff; Steam handles the future. The catch is that Steam Input can no longer modify your basic controls.
 
 ## Why [VIIPER](https://github.com/Alia5/VIIPER) and not Vigembus?
 
-Because Vigembus is dead and no longer maintained.
+Because Vigembus is dead, much like Microsoft's innovation in controller APIs.
 
-[VIIPER](https://github.com/Alia5/VIIPER) is actively maintained, newer, and is the exact same backbone that [SISR](https://github.com/Alia5/SISR) is built on. By forcing you to install [usbip-win2](https://github.com/vadimgrn/usbip-win2) to run SC2SmoothBrainifier, you already have the prerequisites for [SISR](https://github.com/Alia5/SISR). Consider it a clear upgrade path for when you eventually realize what you've done.
+[VIIPER](https://github.com/Alia5/VIIPER) is actively maintained, operates entirely in user-space, and is the exact same backbone that [SISR](https://github.com/Alia5/SISR) is built on. By installing [usbip-win2](https://github.com/vadimgrn/usbip-win2) to run this app, you've already met the prerequisites for [SISR](https://github.com/Alia5/SISR). Consider it an easy upgrade path when you're ready to unlock the rest of your controller but still intend to use it for non Steam games.
 
 ## Why Vibe Coded?
 
-For a task this simple, vibe coding is all that's needed. Or rather, it's all this dumb project deserved.
-
-This utility was generated using the Gemini 3.1 Pro Preview model. As of the time of the initial release, 40k tokens were used to create and debug the program.
+Because fixing a multi-billion dollar company's driver limitations shouldn't require a whole development studio.
