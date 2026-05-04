@@ -1,3 +1,5 @@
+# Steam Controller 2 Smooth Brain-ifier
+
 You bought a $100 piece of bleeding-edge hardware. It has capacitive touch, high-fidelity haptics, trackpads, and a gyroscope. It is a masterpiece of modern engineering.
 
 And yet, to play a game on Windows in 2026, you are forced to make it masquerade as an Xbox 360 controller from 2005.
