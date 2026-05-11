@@ -22,6 +22,8 @@ Since Windows has a smooth brain, we have to smooth the brain of the controller 
 
 4: Play your games.
 
+Note: this has only been tested through the Steam Controller 2's Puck, and only with 1 of them connected at a time. Connect more or differently at your own peril.
+
 ## What Exactly Is This Program?
 
 SC2SmoothBrainifier lobotomizes the Steam Controller 2026 just enough to make Windows happy, without needing Steam running in the background.
