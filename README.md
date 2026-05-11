@@ -65,4 +65,4 @@ Because Vigembus is dead, much like Microsoft's innovation in controller APIs.
 
 ## Why Vibe Coded?
 
-Because fixing a multi-billion dollar company's driver limitations shouldn't require a whole development studio.
+Because that's really as much as this simple app deserves.
