@@ -47,18 +47,15 @@ Here are the casualties of Microsoft's neglect (Unsupported):
 * Either grip sense
 * The back buttons
 * Gyro
+* Rumble (the app can be sent rumble events, however it currently cannot send them to the controller)
 
 There is no GUI. There is no rebinding. If you want those advanced features back, you have to go back to Steam, or use [SISR](https://github.com/Alia5/SISR) for non Steam games.
 
-## Running Steam At The Same Time (The Hybrid Approach)
+## Running Steam At The Same Time?
 
-Technically, multiple programs can read the same raw USB data at once. If you want Windows to handle the basic inputs natively but let Steam handle the advanced stuff (like gyro), you can.
+Unfortunately, this does not work. Because this utility is manually disabling lizard mode, with Steam running and also trying to disable lizard mode conflicts happen.
 
-To prevent your PC from registering double inputs, you must:
-* Disable Xbox controller support in Steam. This prevents Steam from hooking into the virtual controller [VIIPER](https://github.com/Alia5/VIIPER) just spawned.
-* Blank out the basic controls in your Steam Controller configuration.
-
-SC2SmoothBrainifier handles the legacy stuff; Steam handles the future. The catch is that Steam Input can no longer modify your basic controls.
+In hindsight, if I had been smart and used SDL instead of the full manual mode here, it might be possible? However, as this app is at a place where it currently serves its function; close steam, open app, play games as if you are using a xbox controller. As a result, I'm not spending more time on it.
 
 ## Why [VIIPER](https://github.com/Alia5/VIIPER) and not Vigembus?
 
