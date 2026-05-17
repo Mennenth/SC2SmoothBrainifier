@@ -215,11 +215,13 @@ namespace SC2SmoothBrainifier
                                             try
                                             {
                                                 // The 10ms dummy read test to make sure Windows doesn't block it
-                                                tempDevice.ReadTimeout(new byte[64], 10);
-
-                                                puckDevice = tempDevice;
-                                                Debug.WriteLine($"SUCCESS: Hooked unblocked data interface!");
-                                                break;
+                                                int bytesRead = tempDevice.ReadTimeout(new byte[64], 10);
+                                                if (bytesRead > 0)
+                                                {
+                                                    puckDevice = tempDevice;
+                                                    Debug.WriteLine($"SUCCESS: Hooked unblocked data interface!");
+                                                    break;
+                                                }
                                             }
                                             catch
                                             {
